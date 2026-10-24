@@ -17,9 +17,13 @@ Cada grupo que termina su proyecto deja acá su informe, con la información nec
 <!-- INDEX:START -->
 <!-- Esta tabla se genera automáticamente a partir de los metadata.yml. No editar a mano. -->
 
-| Año                                  | Proyecto | Integrantes | Estado | Trabajo futuro |
-| ------------------------------------ | -------- | ----------- | ------ | -------------- |
-| _(todavía no hay informes cargados)_ |          |             |        |                |
+| Año | Proyecto | Integrantes | Estado | Trabajo futuro |
+|-----|----------|-------------|--------|----------------|
+| 2026 | [Modelado y extensión de un planificador del sistema operativo mediante redes de Petri: integración de funcionalidades de monopolización de núcleos e inhibición de asignación de trabajo a procesadores](2026/modelado-extension-planificador-redes-petri/) | Leandro Agustín Drudi, Nicolás Goldman | Línea abierta | 6 tareas |
+| 2024 | [Scheduling guiado por tipo de proceso para FreeBSD](2024/scheduling-guiado-por-tipo-de-proceso/) | Francisco Ignacio Bonino, Francisco Daniele | Línea abierta | 5 tareas |
+| 2022 | [Comunicación desde espacio de usuario a espacio de kernel mediante metadatos en archivos ELF](2022/metadatos-elf-espacio-kernel/) | José María Cancinos, Julián González | Línea abierta | 3 tareas |
+| 2021 | [Compiladores y ejecutables](2021/compiladores-y-ejecutables-pps/) | José Cancinos, Julián González | Terminado | 0 tareas |
+| 2017 | [Modelado del planificador a corto plazo con redes de Petri](2017/modelado-planificador-redes-petri/) | Tomás Turina, Nicolás Papp | Línea abierta | 6 tareas |
 
 <!-- INDEX:END -->
 

@@ -5,7 +5,7 @@ Estructura esperada del repositorio:
 
     <AAAA>/<nombre-corto>/metadata.yml
 
-Busca todos los metadata.yml (excepto los de plantilla/), valida sus campos y
+Busca todos los metadata.yml (excepto los de template/), valida sus campos y
 reemplaza el contenido del README que está entre los marcadores INDEX:START e
 INDEX:END.
 
@@ -26,7 +26,7 @@ import yaml
 
 START = "<!-- INDEX:START -->"
 END = "<!-- INDEX:END -->"
-EXCLUDED_DIRS = {"plantilla"}
+EXCLUDED_DIRS = {"template"}
 YEAR_RE = re.compile(r"^\d{4}$")
 
 REQUIRED_FIELDS = ["titulo", "anio", "integrantes", "director", "resumen", "estado"]
@@ -34,7 +34,6 @@ ESTADOS = {"terminado": "Terminado", "linea-abierta": "Línea abierta"}
 
 
 def find_metadata_files(root: Path) -> list[Path]:
-    """Devuelve los metadata.yml del repo, ignorando carpetas ocultas y la plantilla."""
     files = []
     for path in root.rglob("metadata.yml"):
         dirs = path.relative_to(root).parts[:-1]

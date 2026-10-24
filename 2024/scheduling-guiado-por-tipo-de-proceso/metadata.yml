@@ -1,0 +1,30 @@
+# Generado con Claude Sonnet 5.5 el 2026-10-23
+titulo: "Scheduling guiado por tipo de proceso para FreeBSD"
+anio: 2024
+integrantes:
+  - Francisco Ignacio Bonino
+  - Francisco Daniele
+director: Maximiliano Andrés Eschoyez
+codirector: Nicolás Papp
+resumen: >
+  Prueba de concepto dentro del Proyecto Scheduler. Unifica y actualiza a la
+  última versión de FreeBSD los trabajos previos del proyecto, y desarrolla un
+  módulo que decide la planificación según la información que aportan los
+  procesos en ejecución. Usa el pasaje de mensajes de espacio de usuario a
+  kernel para interactuar con una red de Petri modificada y cambiar el
+  comportamiento del scheduler de forma dinámica en un sistema multiprocesador
+  simétrico. Incluye guías de configuración del entorno de trabajo.
+estado: linea-abierta
+repos:
+  - https://github.com/frandaniele/pi_doc
+trabajo_futuro:
+  - Implementar el apagado físico de núcleos por hardware
+  - Mejorar el algoritmo que decide el estado de los núcleos
+  - Evaluar distintas redes de Petri basadas en el modelo del 4BSD y comparar su performance
+  - Incorporar los módulos de kernel desarrollados al sistema, con pruebas exhaustivas y compatibilidad con versiones futuras de FreeBSD
+  - Escalar el proyecto a sistemas multiprocesador multinúcleo
+palabras_clave: [sistemas operativos, redes de Petri, planificador, kernel, FreeBSD]
+relacionados:
+  - 2017/modelado-planificador-redes-petri
+  - 2022/metadatos-elf-espacio-kernel
+  - 2026/modelado-extension-planificador-redes-petri

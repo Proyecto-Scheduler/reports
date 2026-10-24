@@ -1,0 +1,26 @@
+# Generado con Claude Sonnet 5.5 el 2026-10-23
+titulo: "Modelado del planificador a corto plazo con redes de Petri"
+anio: 2017
+integrantes:
+  - Tomás Turina
+  - Nicolás Papp
+director: Maximiliano Eschoyez
+codirector: Orlando Micolini
+resumen: >
+  Propone un planificador dinámico cuya lógica se modela con redes de Petri,
+  tomando como base el planificador 4BSD de FreeBSD. La idea es que, si el
+  planificador conoce a priori el orden de ejecución de los procesos, se reduce
+  la incertidumbre de la planificación puramente estadística. El modelo se
+  desarrolla en iteraciones (hilo, red de recursos, turnos de CPU, encolado,
+  selección de hilo, afinidad, entre otras) y se valida formalmente la ausencia
+  de inanición e interbloqueos.
+estado: linea-abierta
+repos: [] # el informe no menciona un repositorio de código
+trabajo_futuro:
+  - Realizar pruebas más exhaustivas del modelo, incluso en un sistema con interfaz gráfica y gran carga de procesos
+  - Modelar el reparto de CPU por tipo de proceso (por ejemplo, cálculos complejos en un CPU preparado para eso)
+  - Agregar al modelo el paso dinámico de monoprocesador a multiprocesador y viceversa, para poder apagar CPU sin uso
+  - Reemplazar el cálculo estadístico de prioridades por un plan de ejecución, aprovechando que en sistemas embebidos los procesos se conocen de antemano
+  - Evaluar correr el planificador en una FPGA para mejorar el desempeño del sistema
+  - Modelar el planificador ULE de FreeBSD
+palabras_clave: [planificador, redes de Petri, FreeBSD, 4BSD, sistemas operativos]

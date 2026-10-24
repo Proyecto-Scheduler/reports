@@ -1,0 +1,31 @@
+# Generado con Claude Sonnet 5.5 el 2026-10-23
+titulo: "Comunicación desde espacio de usuario a espacio de kernel mediante metadatos en archivos ELF"
+anio: 2022
+integrantes:
+  - José María Cancinos
+  - Julián González
+director: Maximiliano Andrés Eschoyez
+codirector: Nicolás Papp
+resumen: >
+  Presenta un prototipo de mecanismo para que el programador envíe datos al
+  kernel del sistema operativo insertándolos como metadatos en el ejecutable ELF
+  durante la compilación. Al ejecutar el programa, el kernel detecta, extrae,
+  decodifica y almacena esos datos. La implementación incluye herramientas
+  complementarias para GCC y Clang/LLVM en espacio de usuario, y parches del
+  kernel para FreeBSD 11, 12.3 y 13.
+estado: linea-abierta
+repos:
+  - https://github.com/josemacan/PPSCompiladoresUNC
+  - https://github.com/josemacan/metadataFreeBSD
+  - https://github.com/josemacan/metadataFreeBSD_releng12.3
+  - https://github.com/josemacan/metadataFreeBSD_releng13
+trabajo_futuro:
+  - Levantar los límites de cantidad y tamaño de los datos (payloads) impuestos en la versión prototipo
+  - Agregar a los parches del kernel funciones que modifiquen o seteen variables del kernel, para darle funcionalidad real al mecanismo
+  - Extender el desarrollo a otros sistemas operativos, tomando como base el parche de FreeBSD
+palabras_clave:
+  [compiladores, archivos ELF, kernel, FreeBSD, GCC, Clang/LLVM, entorno en tiempo de ejecución]
+relacionados:
+  - 2017/modelado-planificador-redes-petri
+  - 2021/compiladores-y-ejecutables-pps
+  - 2024/scheduling-guiado-por-tipo-de-proceso

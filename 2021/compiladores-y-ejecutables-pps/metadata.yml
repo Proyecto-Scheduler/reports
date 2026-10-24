@@ -1,0 +1,24 @@
+# Generado con Claude Sonnet 5.5 el 2026-10-23
+titulo: "Compiladores y ejecutables"
+anio: 2021
+integrantes:
+  - José Cancinos
+  - Julián González
+director: Maximiliano Eschoyez # en la carátula figura como supervisor
+codirector: Nicolás Papp # en la carátula figura como tutor
+resumen: >
+  Informe de la Práctica Supervisada. Presenta los aspectos generales de los
+  compiladores y del código intermedio, compara paso a paso GCC y CLANG/LLVM
+  sobre un mismo programa en C (GIMPLE contra LLVM IR) y explica la estructura
+  de los archivos ejecutables ELF. Finalmente, expone tres métodos para insertar
+  datos (payload) en un ELF (sección .comment, sección .rodata y una sección
+  nueva .metadata) y un programa propio que lee esos datos. Se eligió la sección
+  nueva, con el payload pasado por línea de comandos al compilador. Los
+  programas de inserción y lectura son la base del Proyecto Integrador de 2022.
+estado: terminado
+repos:
+  - https://github.com/josemacan/PPSCompiladoresUNC
+trabajo_futuro: [] # el informe no tiene sección de trabajo futuro; su continuación es el informe de 2022
+palabras_clave: [compiladores, GCC, CLANG/LLVM, código intermedio, archivos ELF, GIMPLE, LLVM IR]
+relacionados:
+  - 2022/metadatos-elf-espacio-kernel
