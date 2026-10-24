@@ -1,0 +1,68 @@
+name: Actualizar índice de informes
+
+# Corre en cada Pull Request hacia main, ANTES del merge: valida los metadata.yml
+# y, si hace falta, commitea el README actualizado en la rama del PR. Así el
+# merge ya trae la tabla de informes al día.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "**/metadata.yml"
+      - "README.md"
+      - "scripts/generate_index.py"
+      - ".github/workflows/update-index.yml"
+
+permissions:
+  contents: write
+
+# Si se suben commits seguidos al mismo PR, solo cuenta la última ejecución.
+concurrency:
+  group: update-index-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    env:
+      # Los grupos trabajan en ramas del propio repositorio (team con permiso de
+      # escritura). Un PR desde un fork no da permiso de escritura: en ese caso
+      # el workflow solo verifica, y quien abre el PR corre el script a mano.
+      SAME_REPO: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+      BRANCH: ${{ github.event.pull_request.head.ref }}
+    steps:
+      - name: Clonar la rama del PR
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          # Opcional: con un secret INDEX_BOT_TOKEN (PAT con permiso de escritura en
+          # el contenido), el commit del bot vuelve a disparar los checks del PR.
+          # Sin él se usa el token por defecto. Ver MANTENIMIENTO.md.
+          token: ${{ secrets.INDEX_BOT_TOKEN || github.token }}
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install pyyaml
+
+      - name: Generar el índice y subirlo al PR
+        if: env.SAME_REPO == 'true'
+        run: |
+          python scripts/generate_index.py
+          if git diff --quiet -- README.md; then
+            echo "El índice ya estaba al día."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: actualizar índice de informes"
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:refs/heads/$BRANCH"
+
+      - name: Verificar el índice (PR desde un fork)
+        if: env.SAME_REPO != 'true'
+        run: python scripts/generate_index.py --check

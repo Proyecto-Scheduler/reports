@@ -1,0 +1,18 @@
+titulo: "..."
+anio: 202#
+integrantes:
+  - Nombre(s) Apellido(s) 1
+  - Nombre(s) Apellido(s) 2
+director: Nombre(s) Apellido(s)
+codirector: Nombre(s) Apellido(s)
+resumen: 3-4 líneas...
+estado: terminado | linea-abierta
+repos:
+  - https://github.com/...
+trabajo_futuro:
+  - Qué quedó pendiente
+  - Qué mejorarían del sistema
+  - Qué advertencias le darían al grupo que continúe el trabajo
+palabras_clave: [palabra1, palabra2, ...]
+relacionados:
+  - XXXX/nombre corto del proyecto
