@@ -1,0 +1,42 @@
+# Generado con Claude Sonnet 5.5 el 2026-10-23
+titulo: "Modelado y extensión de un planificador del sistema operativo mediante redes de Petri: integración de funcionalidades de monopolización de núcleos e inhibición de asignación de trabajo a procesadores"
+anio: 2026
+integrantes:
+  - Leandro Agustín Drudi
+  - Nicolás Goldman
+director: Maximiliano Eschoyez
+codirector: Nicolás Papp
+resumen: >
+  Parte del planificador de corto plazo de FreeBSD modelado con redes de Petri
+  (Turina y Papp) y lo adapta de FreeBSD 11 a FreeBSD 13.1. Sobre esa base agrega
+  dos módulos: uno de inhibición de asignación de trabajo, que impide que ciertos
+  núcleos reciban hilos nuevos sin apagar el procesador, y otro de monopolización,
+  que reserva un núcleo para un hilo específico. El primero se integra
+  directamente en la red; el segundo necesita lógica auxiliar del kernel. También
+  corrige una desincronización entre las colas de FreeBSD y el marcado de la red,
+  con un camino de encolado forzado. El trabajo es funcional; no mide impacto en
+  rendimiento ni en consumo energético. Según el README del repositorio, hoy la
+  activación se hace con kernels de prueba y sysctl, y los módulos .ko quedaron
+  deprecados.
+estado: linea-abierta
+repos:
+  - https://github.com/drudilea/free-bsd-scheduler
+trabajo_futuro:
+  - Automatizar la activación y desactivación de los módulos con triggers dentro del sistema operativo, según la carga de trabajo
+  - Vincular la inhibición de núcleos con la administración de energía de los procesadores modernos y evaluar si hay una reducción real del consumo
+  - Ampliar la validación del encolado forzado (TRAN_ADDTOQUEUE_FORCED) con cargas más extensas, más combinaciones de afinidad y métricas de rendimiento
+  - Estudiar políticas menos restrictivas para CPU0, hoy excluida de la inhibición y la monopolización, incluyendo un modo para sistemas con pocos núcleos
+  - Optimizar el timeslice para procesadores inhibidos y para núcleos monopolizados
+  - Representar dentro de la red de Petri las restricciones nativas de FreeBSD (afinidad, pinning, bounding, sched_bind) para reducir el uso del camino forzado
+palabras_clave:
+  [
+    planificador,
+    redes de Petri,
+    FreeBSD,
+    monopolización de núcleos,
+    inhibición de procesadores,
+    kernel,
+  ]
+relacionados:
+  - 2017/modelado-planificador-redes-petri
+  - 2024/scheduling-guiado-por-tipo-de-proceso
