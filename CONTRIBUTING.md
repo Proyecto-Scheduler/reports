@@ -6,7 +6,7 @@ Esta guía es para los grupos que terminan su proyecto y quieren dejar el inform
 
 - Tu informe tiene que estar **aprobado**, o tener el visto bueno de tu director/a para publicarse.
 - **Todos los integrantes** del grupo tienen que estar de acuerdo con la publicación.
-- Pedile a [NOMBRE / MAIL DEL REFERENTE DEL LAB] que te agregue al team [NOMBRE DEL TEAM] del repositorio. Con ese acceso trabajás en una rama del propio repositorio.
+- Pedile a [NOMBRE / MAIL DEL REFERENTE DEL LAB] que te agregue al team [Alumnos](https://github.com/orgs/Proyecto-Scheduler/teams/alumnos) del repositorio. Con ese acceso trabajás en una rama del propio repositorio.
 
 ## Paso a paso
 
